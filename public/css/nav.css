@@ -1,0 +1,169 @@
+#toggle {
+    -webkit-appearance: none;
+        position: fixed;
+          bottom: 0;
+}
+
+.button {
+    bottom: 0;
+    position: fixed;
+    z-index: 999;
+    width: 340px;
+    height: 65px;
+    background: #222;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 24px;
+    overflow: hidden;
+    transition: width 300ms linear;
+}
+
+.button:before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #eeff00;
+    transform: rotate(225deg);
+    transition: all 0.4s ease;
+}
+
+.button:after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #eeff00;
+    transform: rotate(135deg);
+    transition: all 0.4s ease;
+}
+
+.nav {
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+    background: #222;
+    width: 100%;
+    border-radius: 5px;
+    transform: translateX(10%);
+    padding: 10px 0;
+}
+
+.nav ul {
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Đều khoảng cách 5 item */
+    align-items: center;
+    list-style: none;
+}
+
+.nav li {
+    opacity: 0;
+    transform-origin: bottom;
+    animation-fill-mode: forwards;
+    animation-name: itop;
+    animation-duration: 300ms;
+    animation-timing-function: linear;
+    
+}
+
+.nav li:nth-child(1) {
+    animation-delay: 300ms;
+}
+
+.nav li:nth-child(2) {
+    animation-delay: 400ms;
+}
+
+.nav li:nth-child(3) {
+    animation-delay: 500ms;
+}
+
+.nav li:nth-child(4) {
+    animation-delay: 600ms;
+}
+
+.nav li:nth-child(5) {
+    animation-delay: 700ms;
+}
+
+.nav a {
+    transition: all 0.5s linear;
+    text-decoration: none;
+    color: #eeff00;
+    font-size: 20px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-radius: 15px;
+}
+
+.nav a:hover {
+    color: #fff;
+    background: #1c1c1c;
+    border-radius: 15px;
+}
+
+/* Khi toggle checked: ẩn menu */
+#toggle:checked~label .nav {
+    display: none;
+    opacity: 0;
+    transform: translateX(0);
+}
+
+/* Hiệu ứng nút mở rộng thu nhỏ */
+#toggle:checked~.button:before {
+    transform: rotate(90deg);
+}
+
+#toggle:checked~.button:after {
+    transform: rotate(0deg);
+}
+
+#toggle:checked~.button {
+    width: 65px;
+    transition: all 0.1s linear;
+}
+
+
+
+@keyframes itop {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes zoom-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    filter: blur(1rem);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(1.05);
+    filter: blur(1rem);
+  }
+}

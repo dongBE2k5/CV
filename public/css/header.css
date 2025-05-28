@@ -1,0 +1,204 @@
+/* ========== HEADER ========== */
+#header {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    padding: 100px;
+    color: white;
+    justify-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header .item:nth-child(1) {
+     display: flex;
+    flex-direction: column; /* <-- Thêm dòng này */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+    grid-row: 20px;
+  
+}
+
+.header .item:nth-child(1) h1 {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    animation: text-shadow-pop-tr 0.6s both;
+       margin-bottom: 50px;
+}
+
+.header .item:nth-child(2) {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #090a0f;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 1;
+    height: 100%;
+    aspect-ratio: 1/1;
+    transition: all 2s;
+}
+
+.header .item:nth-child(2):hover {
+    box-shadow: -10px 0px 20px 10px rgba(0, 255, 255, 0.3),
+                10px 0px 20px 10px rgba(0, 128, 255, 0.25),
+                0px 0px 30px 15px rgba(0, 255, 200, 0.2);
+}
+
+.header .item:nth-child(2) img {
+    border-radius: 15px;
+}
+
+/* ========== BORDER EFFECT ========== */
+.header .item:nth-child(2)::before {
+    content: "";
+    inset: -40%;
+    position: absolute;
+    background: conic-gradient(#2c3e50 70%, #34495e 78%, #1abc9c 86%, #2c3e50 92%);
+    transition: all 2s;
+    z-index: -2;
+    border: 2px solid;
+    border-radius: 15px;
+    animation: rotate 3s linear infinite;
+    transform-origin: center center;
+}
+
+.header .item:nth-child(2)::after {
+    content: "";
+    inset: 15px;
+    position: absolute;
+    background: #000;
+    z-index: -1;
+    border: 2px solid;
+    border-radius: 15px;
+}
+
+/* ========== TEXT SHADOW ========== */
+@keyframes text-shadow-pop-tr {
+    0% {
+        text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        text-shadow: 1px -1px #555, 2px -2px #555, 3px -3px #555, 4px -4px #555,
+                     5px -5px #555, 6px -6px #555, 7px -7px #555, 8px -8px #555;
+        transform: translateX(-8px) translateY(8px);
+    }
+}
+
+@-webkit-keyframes text-shadow-pop-tr {
+    0% {
+        text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+        -webkit-transform: translateX(0) translateY(0);
+    }
+    100% {
+        text-shadow: 1px -1px #555, 2px -2px #555, 3px -3px #555, 4px -4px #555,
+                     5px -5px #555, 6px -6px #555, 7px -7px #555, 8px -8px #555;
+        -webkit-transform: translateX(-8px) translateY(8px);
+    }
+}
+
+/* ========== SNOW ========== */
+.snow {
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 99px;
+    position: absolute;
+    bottom: 0;
+    font-size: 3em;
+    animation: fall 4s linear infinite, fluctuate 1s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes fluctuate {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+/* ========== SOCIAL ICONS LIST ========== */
+.listAbout {
+    position: relative;
+    display: flex;
+}
+
+.listAbout li {
+    position: relative;
+    list-style: none;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.listAbout li a {
+    text-decoration: none;
+}
+
+.listAbout li a .fa-brands {
+    margin-top: 20px;
+    font-size: 6em;
+    color: #222;
+}
+
+.listAbout li a::before {
+    font-family: "FontAwesome";
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    font-size: 6em;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+/* Instagram */
+.listAbout li:nth-child(1) a::before {
+    content: "\f16d";
+    background-image: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 4px solid #dc2743;
+}
+
+/* WhatsApp */
+.listAbout li:nth-child(2) a::before {
+    content: "\f09b";
+    color: #fff;
+    border-bottom: 4px solid #fff;
+}
+
+/* Twitter */
+.listAbout li:nth-child(3) a::before {
+     content: "\f08c";
+    color: #0A66C2;
+    border-bottom: 4px solid #0A66C2;
+}
+.listAbout li:nth-child(4) a::before {
+content: "\f09a";
+    color: #1877F2;
+    border-bottom: 4px solid #1877F2;
+}
+
+.listAbout li:hover a::before {
+    height: 105%;
+}

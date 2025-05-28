@@ -1,0 +1,398 @@
+.education-section {
+  background: linear-gradient(120deg, #2b6cb0, #6b7280, #9f7aea);
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.education-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1400px;
+  align-items: center;
+}
+
+.image-education img {
+
+  width: 500px;
+  max-width: 100%;
+  height: 450px;
+  border-radius: 1rem;
+
+object-fit: fill;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  /* Viền trắng bán trong suốt */
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(147, 112, 255, 0.4),
+    0 0 35px rgba(99, 76, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-education img:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(147, 112, 255, 0.6),
+    0 0 60px rgba(99, 76, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.9);
+  /* Khi hover viền sáng hơn */
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.education-column,
+.funfacts-column {
+  text-align: left;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.3rem;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffffff, #9f7aea);
+  left: 0;
+  bottom: -8px;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.education-grid ul {
+  list-style: none;
+  padding: 0;
+}
+
+.education-grid ul li {
+  margin-bottom: 0.9rem;
+  font-size: 1.3rem;
+  padding: 0.9rem 1.3rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #f8fafc;
+  position: relative;
+  /* cần để tooltip position: absolute theo đúng li */
+  cursor: pointer;
+  z-index: 1;
+}
+
+.education-grid ul li:hover {
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3), 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+
+/* Tooltip */
+.tooltip-box {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: linear-gradient(135deg, #ffffffee, #e0d7ffee);
+  color: #1a202c;
+  padding: 1.4rem 1.8rem;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 12px 25px rgba(99, 76, 255, 0.5),
+    0 0 35px rgba(147, 112, 255, 0.3);
+  width: 320px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  z-index: 9999;
+  /* luôn nổi trên các phần tử khác */
+  opacity: 0;
+  transform: translateY(15px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(147, 112, 255, 0.6);
+  user-select: none;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  word-break: break-word;
+}
+
+
+.tooltip:hover .tooltip-box {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  box-shadow:
+    0 14px 32px rgba(99, 76, 255, 0.7),
+    0 0 45px rgba(147, 112, 255, 0.6);
+}
+
+
+/* Arrow below tooltip */
+.tooltip-box::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent #e0d7ffee transparent;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  z-index: 9999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .education-content {
+    grid-template-columns: 1fr;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .image-education img {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  .education-grid ul li {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 1.5rem;
+  }
+
+  .image-education img {
+    max-width: 180px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .education-grid ul li {
+    font-size: 1.1rem;
+  }
+
+  .tooltip-box {
+    width: 100%;
+  }
+}
+
+
+.scene {
+  /* position: absolute; */
+  /* top: 0; */
+  perspective: 1000px;
+  margin: 0 30px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-item {
+
+  width: 200px;
+  height: 200px;
+
+  /* position: relative; */
+  transform-style: preserve-3d;
+  animation: spin 35s linear infinite;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #38bdf8;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  transform-style: preserve-3d;
+  box-shadow: 0 0 4px rgba(0, 255, 255, 0.5);
+  transition: transform 0.2s ease-in-out;
+  animation: colorShift 5s infinite alternate ease-in-out,
+  expandCollapse3D 4s infinite ease-in-out;
+}
+
+@keyframes expandCollapse3D {
+  0%, 100% {
+    transform: translate3d(var(--x), var(--y), var(--z)) scale(1);
+  }
+  50% {
+    transform: translate3d(calc(var(--x) * 1.4), calc(var(--y) * 1.4), calc(var(--z) * 1.4)) scale(1.2);
+  }
+}
+
+
+
+.dot:hover {
+  transform: scale(1.5);
+  background: #ffffff;
+}
+.label {
+  color: #f0f0f0;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg) rotateX(20deg);
+  }
+
+  to {
+    transform: rotateY(360deg) rotateX(20deg);
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .education-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .scene {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+
+  .container-item {
+    width: 250px;
+    height: 250px;
+  }
+
+  .education-grid {
+    padding: 2rem;
+  }
+}
+
+/* === Avatar Image Adjustments === */
+.image-education img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  aspect-ratio: 4/5;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* === Tooltip Box Enhancements === */
+.tooltip-box {
+  border: 2px solid rgba(147, 112, 255, 0.8);
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(145deg, #ffffffcc, #eee6ffcc);
+  color: #2d3748;
+  font-size: 1rem;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    0 0 25px rgba(147, 112, 255, 0.25);
+  line-height: 1.5;
+}
+
+.tooltip-box p {
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip:hover .tooltip-box {
+  opacity: 1;
+  transform: translateY(-10px) scale(1.03);
+}
+
+
+@keyframes colorShift {
+  0% {
+    background-color: #38bdf8; /* Cyan */
+    box-shadow: 0 0 4px rgba(0, 255, 255, 0.5);
+  }
+  25% {
+    background-color: #60a5fa; /* Blue */
+    box-shadow: 0 0 6px rgba(96, 165, 250, 0.5);
+  }
+  50% {
+    background-color: #a78bfa; /* Purple */
+    box-shadow: 0 0 6px rgba(167, 139, 250, 0.5);
+  }
+  75% {
+    background-color: #f472b6; /* Pink */
+    box-shadow: 0 0 6px rgba(244, 114, 182, 0.5);
+  }
+  100% {
+    background-color: #34d399; /* Green */
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.5);
+  }
+}

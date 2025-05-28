@@ -1,0 +1,64 @@
+.section {
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    view-timeline: --section;
+}
+
+
+
+@keyframes zoom-scroll {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+        filter: blur(1rem);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(1.05);
+        filter: blur(1rem);
+    }
+}
+
+
+/* z-index để đảm bảo không bị đè */
+.section:nth-of-type(1) .content {
+    z-index: 5;
+}
+
+.section:nth-of-type(2) .content {
+    z-index: 4;
+}
+
+.section:nth-of-type(3) .content {
+    z-index: 3;
+}
+
+.section:nth-of-type(4) .content {
+    z-index: 2;
+}
+
+.section:nth-of-type(5) .content {
+    z-index: 1;
+}
+
+
+html {
+     scroll-behavior: smooth;
+
+    scroll-snap-type: y mandatory;
+    timeline-scope: --section;
+}
+
+.content {
+    animation: zoom-scroll 2s ease-in-out both;
+    animation-timeline: --section;
+    animation-range: entry 0% exit 100%;
+}

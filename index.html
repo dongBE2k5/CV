@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+        @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+
+        .dropping-texts {
+            display: inline-block;
+            width: 180px;
+            text-align: left;
+            height: 36px;
+            vertical-align: -2px;
+        }
+
+        .dropping-texts>div {
+            font-size: 0px;
+            opacity: 0;
+            margin-left: -30px;
+            position: absolute;
+            font-weight: 300;
+            /* box-shadow: 0px 60px 25px -20px rgba(0, 0, 0, 0.5); */
+        }
+
+        .dropping-texts>div:nth-child(1) {
+            animation: roll 3s linear 0s;
+        }
+
+        .dropping-texts>div:nth-child(2) {
+            animation: roll 3s linear 1s;
+        }
+
+        .dropping-texts>div:nth-child(3) {
+            animation: roll 3s linear 2s;
+        }
+
+        .dropping-texts>div:nth-child(4) {
+            animation: roll 3s linear 3s;
+        }
+
+        @keyframes roll {
+            0% {
+                font-size: 0px;
+                opacity: 0;
+                margin-left: -30px;
+                margin-top: 0px;
+                transform: rotate(-25deg);
+            }
+
+            3% {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            5% {
+                font-size: inherit;
+                opacity: 1;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+
+            20% {
+                font-size: inherit;
+                opacity: 1;
+                margin-left: 0px;
+                margin-top: 0px;
+                transform: rotate(0deg);
+            }
+
+            27% {
+                font-size: 0px;
+                opacity: 0.5;
+                margin-left: 20px;
+                margin-top: 100px;
+            }
+
+            100% {
+                font-size: 0px;
+                opacity: 0;
+                margin-left: -30px;
+                margin-top: 0px;
+                transform: rotate(15deg);
+            }
+        }
+
+        @keyframes roll2 {
+            0% {
+                font-size: 0px;
+                opacity: 0;
+                margin-left: -30px;
+                margin-top: 0px;
+                transform: rotate(-25deg);
+            }
+
+            3% {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+
+            5% {
+                font-size: inherit;
+                opacity: 1;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+
+            30% {
+                font-size: inherit;
+                opacity: 1;
+                margin-left: 0px;
+                margin-top: 0px;
+                transform: rotate(0deg);
+            }
+
+            37% {
+                font-size: 1500px;
+                opacity: 0;
+                margin-left: -1000px;
+                margin-top: -800px;
+            }
+
+            100% {
+                font-size: 0px;
+                opacity: 0;
+                margin-left: -30px;
+                margin-top: 0px;
+                transform: rotate(15deg);
+            }
+        }
+
+
+        @keyframes bg {
+            0% {
+                background: #ff0075;
+            }
+
+            3% {
+                background: #0094ff;
+            }
+
+            20% {
+                background: #0094ff;
+            }
+
+            23% {
+                background: #b200ff;
+            }
+
+            40% {
+                background: #b200ff;
+            }
+
+            43% {
+                background: #8BC34A;
+            }
+
+            60% {
+                background: #8BC34A;
+            }
+
+            63% {
+                background: #F44336;
+            }
+
+            80% {
+                background: #F44336;
+            }
+
+            83% {
+                background: #F44336;
+            }
+
+            100% {
+                background: #F44336;
+            }
+        }
+
+
+        h1 {
+            font-size: larger;
+        }
+
+
+        .shadow-dance-text {
+
+            padding-top: 43vh;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+            animation: shadow-dance 2s;
+        }
+
+        @keyframes shadow-dance {
+
+            0%,
+            100% {
+                text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+            }
+
+            50% {
+                text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+            }
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box !important;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: table;
+            width: 100%;
+            height: 100%;
+            background-color: #2c2c2c;
+            /* Background color */
+            color: #f2f2f2;
+            /* Text color */
+            line-height: 1.6;
+            position: relative;
+            font-family: sans-serif;
+            overflow: hidden;
+            margin: 0px;
+            text-align: center;
+            color: #fff;
+
+            font-size: 36px;
+            font-weight: 100;
+            overflow: hidden;
+            animation: bg 4s linear;
+        }
+
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            margin: auto;
+            width: 90vw;
+            display: flex;
+            justify-content: space-between;
+            /* Distribute lines evenly */
+        }
+
+        .line {
+            position: relative;
+            width: 5px;
+            height: 100%;
+            /*background: #ffffff;  /* Line color */
+            overflow: hidden;
+        }
+
+        .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+            animation: drop 3s 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+
+        /* Different colors for each line's pseudo-element */
+        .line:nth-child(1)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FF4500 75%, #FF4500 100%);
+            animation-delay: 3.5s;
+        }
+
+        .line:nth-child(2)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #32CD32 75%, #32CD32 100%);
+            animation-delay: 4s;
+        }
+
+        .line:nth-child(3)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #1E90FF 75%, #1E90FF 100%);
+            animation-delay: 4.5s;
+        }
+
+        .line:nth-child(4)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FFD700 75%, #FFD700 100%);
+            animation-delay: 5s;
+        }
+
+        .line:nth-child(5)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #8A2BE2 75%, #8A2BE2 100%);
+            animation-delay: 6.5s;
+        }
+
+        .line:nth-child(6)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #20B2AA 75%, #20B2AA 100%);
+            animation-delay: 7s;
+        }
+
+        .line:nth-child(7)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #DC143C 75%, #DC143C 100%);
+            animation-delay: 7.5s;
+        }
+
+        .line:nth-child(8)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #00FA9A 75%, #00FA9A 100%);
+            animation-delay: 8s;
+        }
+
+        .line:nth-child(9)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #FF1493 75%, #FF1493 100%);
+            animation-delay: 8.5s;
+        }
+
+        .line:nth-child(10)::after {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #00BFFF 75%, #00BFFF 100%);
+            animation-delay: 9s;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -50%;
+            }
+
+            100% {
+                top: 110%;
+            }
+        }
+
+
+        /* Cursor */
+        .cursor {
+            inset: 0;
+            position: absolute;
+            width: 13em;
+            height: fit-content;
+            margin: 0 auto 0 auto;
+            border-right: 2px solid rgba(255, 255, 255, .75);
+            font-size: 50px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+
+
+
+        }
+
+        @keyframes hidens {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animation */
+        .typewriter-animation {
+            opacity: 0;
+            animation:
+                typewriter 5s steps(50) 5s 2 alternate forwards,
+                blinkingCursor 500ms steps(50) 5s infinite normal,
+                show .1s 5s linear forwards,
+                text-shadow-pop-right .6s 5.5s both,
+                hidens 1s 15s 1 forwards;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blinkingCursor {
+            from {
+                border-right-color: rgba(255, 255, 255, .75);
+            }
+
+            to {
+                border-right-color: transparent;
+            }
+        }
+
+
+        .box {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .box h1:nth-child(1) {
+            color: #ff9800;
+            font-family: 'Fira Code', monospace;
+            font-weight: 800;
+            font-size: 24px;
+            margin: 0 0 0 35%;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 170px;
+            animation: show 1s 16s backwards, type 2s 16s steps(40, end) forwards;
+        }
+
+        .box h1:nth-child(2) {
+            opacity: 0;
+            font-family: "Work Sans", sans-serif;
+            margin: 0 auto auto auto;
+            background: linear-gradient(to right, #00e676, #00bcd4, #8e24aa);
+            font-weight: 800;
+            font-size: 100px;
+            width: 430px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            overflow: hidden;
+            animation: shring-animation 2.2s steps(40, end) 17s forwards, blink .5s step-end infinite alternate;
+        }
+
+        @keyframes shring-animation {
+            0% {
+                background-position: 0 0;
+                opacity: 0;
+                width: 0;
+            }
+
+            1% {
+                background-position: 0 0;
+                opacity: 1;
+                border-right: 1px solid orange;
+            }
+
+            50% {
+                background-position: 150px 0;
+                opacity: 1;
+                border-right: 1px solid orange;
+            }
+
+            100% {
+                background-position: 400px 0;
+                opacity: 1;
+                border-right: 1px solid orange;
+            }
+        }
+
+        @keyframes type {
+            0% {
+                width: 0;
+            }
+
+            1%,
+            99% {
+                border-right: 1px solid orange;
+            }
+
+            100% {
+                border-right: none;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6em;
+            color: transparent;
+            text-transform: uppercase;
+            font-family: consolas;
+            z-index: 10;
+        }
+
+        h2 span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #000;
+            transition: 0.5s;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            overflow: hidden;
+            font-family: consolas;
+            z-index: 10;
+        }
+
+        h2:hover span:nth-child(1) {
+            transform: translateY(-18px);
+        }
+
+        h2 span:nth-child(2) {
+            font-family: consolas;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #000;
+            transition: 0.5s;
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        h2:hover span:nth-child(2) {
+            transform: translateY(18px);
+        }
+
+        h2 span:nth-child(3) {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%) scaleY(0);
+            width: 91%;
+            color: #000;
+            background: #ff0;
+            font-size: 0.25em;
+            font-weight: 500;
+            letter-spacing: 0.7em;
+            text-align: center;
+            padding-left: 20px;
+            margin-left: 5px;
+            transition: 0.5s;
+        }
+
+        h2:hover span:nth-child(3) {
+            transform: translateY(-50%) scaleY(1);
+        }
+
+
+
+
+
+
+
+        /* ----------------------------------------------
+ * Generated by Animista on 2025-5-19 14:16:55
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+        @-webkit-keyframes text-shadow-pop-right {
+            0% {
+                text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+                -webkit-transform: translateX(0);
+                transform: translateX(0)
+            }
+
+            100% {
+                text-shadow: 1px 0 #555, 2px 0 #555, 3px 0 #555, 4px 0 #555, 5px 0 #555, 6px 0 #555, 7px 0 #555, 8px 0 #555;
+                -webkit-transform: translateX(-8px);
+                transform: translateX(-8px)
+            }
+        }
+
+        @keyframes text-shadow-pop-right {
+            0% {
+                text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+                -webkit-transform: translateX(0);
+                transform: translateX(0)
+            }
+
+            100% {
+                text-shadow: 1px 0 #555, 2px 0 #555, 3px 0 #555, 4px 0 #555, 5px 0 #555, 6px 0 #555, 7px 0 #555, 8px 0 #555;
+                -webkit-transform: translateX(-8px);
+                transform: translateX(-8px)
+            }
+        }
+
+        .container {
+            position: relative;
+            margin: 43vh auto 0 auto;
+            justify-items: center;
+        }
+
+
+        .loading {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: grid;
+            place-items: center;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+
+
+        .spinner {
+            inset: 0;
+            z-index: 9999;
+            place-items: center;
+            position: sticky;
+            display: grid;
+
+            opacity: 1;
+            width: 48px;
+            height: 48px;
+            border: 3px dotted #FFF;
+            border-style: solid solid dotted dotted;
+            border-radius: 50%;
+            /* display: inline-block; */
+            /* position: relative; */
+            box-sizing: border-box;
+            animation: rotation 2s linear infinite;
+        }
+
+        .spinner::after {
+            opacity: 1;
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            border: 3px dotted #FF3D00;
+            border-style: solid solid dotted;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            animation: rotationBack 1s linear infinite;
+            transform-origin: center center;
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotationBack {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dropping-texts">
+        <div>
+            <h1 class="shadow-dance-text">Wellcome</h1>
+        </div>
+        <div>
+            <h1 class="shadow-dance-text">To</h1>
+        </div>
+        <div>
+            <h1 class="shadow-dance-text">My</h1>
+        </div>
+        <div>
+            <h1 class="shadow-dance-text">Website</h1>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <p class="cursor typewriter-animation">Hi, Wellcome To My Website</p>
+        <!-- <p class="cursor typewriter-animation">Hi, Wellcome To My Website</p> -->
+        <div class="box">
+            <h1>My name is</h1>
+            <h1>Đồng</h1>
+        </div>
+
+
+    </div>
+    <!-- <h2>
+        Believe
+        <span>Believe</span>
+        <span>Believe</span>
+        <span>in yourself</span>
+    </h2> -->
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <div id="loading" class="loading hidden">
+
+        <div class="spinner"></div>
+    </div>
+    <script>
+        const loader = document.getElementById('loading');
+        document.body.style.setProperty("--t", 1);
+
+        function showLoading() {
+            loader.classList.remove('hidden');
+        }
+
+        function hideLoading() {
+            loader.classList.add('hidden');
+        }
+
+        setTimeout(() => showLoading(), 17000);
+
+        nextPage()
+
+        async function nextPage() {
+            // đợi 60 giây (60000 ms)
+            await new Promise(resolve => setTimeout(resolve, 20000));
+            // chuyển trang
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+
+</html>

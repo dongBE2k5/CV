@@ -1,0 +1,293 @@
+#skills {
+  position: relative;
+  background: radial-gradient(circle at center, #1b1f25 0%, #121518 100%);
+  padding: 10px 0;
+}
+
+#skills .content h2 {
+  font-family: "Jost", sans-serif;
+  font-weight: 600;
+  font-size: 4rem;
+  color: #00fff7;
+  text-align: center;
+
+  animation: lights 5s 750ms linear infinite, text-shadow-pop-tr .6s both;
+
+   position: relative; /* đổi từ absolute */
+  top: 0; /* bỏ top nếu không cần */
+  margin-bottom: 40px;
+
+}
+ #skills .content {
+position: relative;
+
+ }
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 100px 200px;
+  padding: 100px 200px;
+  color: #cbd5e1;
+  justify-items: center;
+  text-align: center;
+  background-color: rgba(25, 30, 40, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  box-shadow: 0 0 80px rgba(0, 255, 255, 0.22);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.skills:hover {
+  background-color: rgba(35, 45, 60, 0.98);
+  box-shadow: 0 0 120px rgba(0, 255, 255, 0.4);
+}
+
+.skills .item {
+  content: attr(data-tooltip);
+  position: relative;
+  width: 220px;
+  height: 90px;
+  background: linear-gradient(135deg, #00fff0, #c600ff);
+  color: #111;
+  text-align: center;
+  line-height: 90px;
+  font-weight: bold;
+  font-size: 1.15rem;
+  transform: rotate(-15deg) skew(25deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: -15px 15px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  /* border-radius: 10px; */
+  color: #f5f5f5;
+  transition: .5s;
+  cursor: pointer;
+}
+
+
+.skills .item .tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.2) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.2) 75%); */
+  background-size: 8px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  backdrop-filter: blur(8px);
+  color: #00fff7;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  z-index: 10;
+  filter: drop-shadow(0 0 4px #00fff7);
+}
+
+.skills .item:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+
+.skills .item:hover {
+  transform: rotate(-15deg) skew(25deg) translate(20px, -15px);
+  box-shadow: -20px 30px 40px rgba(0, 255, 255, 0.4);
+}
+
+.skills .item::before,
+.skills .item::after {
+  content: '';
+  position: absolute;
+  background: #555;
+  z-index: -1;
+}
+
+.skills .item::after {
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  transform: skewX(-45deg);
+}
+
+.skills .item::before {
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  transform: skewY(-45deg);
+}
+
+.skills .item img {
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  display: block;
+  margin-right: 10px;
+}
+
+/* Animation cho tiêu đề */
+@keyframes lights {
+  0% {
+    color: #00fff7;
+    text-shadow:
+      0 0 1em #0ff,
+      0 0 0.2em #0ff,
+      -1em -0.125em 0.5em rgba(255, 0, 255, 0.25),
+      1em 0.125em 0.5em rgba(0, 255, 255, 0.2);
+  }
+
+  50% {
+    color: #f0f;
+    text-shadow:
+      0 0 1em #f0f,
+      0 0 0.2em #f0f,
+      -0.5em -0.125em 0.25em rgba(0, 255, 255, 0.3),
+      0.5em 0.125em 0.25em rgba(255, 0, 255, 0.25);
+  }
+
+  100% {
+    color: #00fff7;
+    text-shadow:
+      0 0 1em #0ff,
+      0 0 0.2em #0ff,
+      1em -0.125em 0.5em rgba(255, 0, 255, 0.25),
+      -1em 0.125em 0.5em rgba(0, 255, 255, 0.2);
+  }
+}
+
+
+/* HTML */
+.skills .item:nth-child(1):hover {
+  background: linear-gradient(135deg, #ff6f59, #ff9376);
+}
+
+.skills .item:nth-child(1):hover::before,
+.skills .item:nth-child(1):hover::after {
+  background: #ff8a73;
+}
+
+/* CSS */
+.skills .item:nth-child(2):hover {
+  background: linear-gradient(135deg, #5a85ff, #8aa9ff);
+}
+
+.skills .item:nth-child(2):hover::before,
+.skills .item:nth-child(2):hover::after {
+  background: #7a9eff;
+}
+
+/* JAVA */
+.skills .item:nth-child(3):hover {
+  background: linear-gradient(135deg, #ffb347, #ffd27f);
+}
+
+.skills .item:nth-child(3):hover::before,
+.skills .item:nth-child(3):hover::after {
+  background: #ffc966;
+}
+
+/* PHP */
+.skills .item:nth-child(4):hover {
+  background: linear-gradient(135deg, #a0a9f0, #c1c7ff);
+}
+
+.skills .item:nth-child(4):hover::before,
+.skills .item:nth-child(4):hover::after {
+  background: #b1b9ff;
+}
+
+/* JavaScript */
+.skills .item:nth-child(5):hover {
+  background: linear-gradient(135deg, #fff17f, #fff9b3);
+}
+
+.skills .item:nth-child(5):hover::before,
+.skills .item:nth-child(5):hover::after {
+  background: #fff3a0;
+}
+
+/* Laravel */
+.skills .item:nth-child(6):hover {
+  background: linear-gradient(135deg, #ff7b6c, #ff9d92);
+}
+
+.skills .item:nth-child(6):hover::before,
+.skills .item:nth-child(6):hover::after {
+  background: #ff8f81;
+}
+
+/* Kotlin */
+.skills .item:nth-child(7):hover {
+  background: linear-gradient(135deg, #cbb4ff, #ddd3ff);
+}
+
+.skills .item:nth-child(7):hover::before,
+.skills .item:nth-child(7):hover::after {
+  background: #d4c1ff;
+}
+
+/* SpringBoot */
+.skills .item:nth-child(8):hover {
+  background: linear-gradient(135deg, #98d066, #b4e389);
+}
+
+.skills .item:nth-child(8):hover::before,
+.skills .item:nth-child(8):hover::after {
+  background: #aad67e;
+}
+
+/* ReactJS */
+.skills .item:nth-child(9):hover {
+  background: linear-gradient(135deg, #8deaff, #b4f0ff);
+}
+
+.skills .item:nth-child(9):hover::before,
+.skills .item:nth-child(9):hover::after {
+  background: #a2e8ff;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2025-5-21 17:57:1
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+@-webkit-keyframes text-shadow-pop-tr {
+  0% {
+    text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0)
+  }
+
+  100% {
+    text-shadow: 1px -1px #555, 2px -2px #555, 3px -3px #555, 4px -4px #555, 5px -5px #555, 6px -6px #555, 7px -7px #555, 8px -8px #555;
+    -webkit-transform: translateX(-8px) translateY(8px);
+    transform: translateX(-8px) translateY(8px)
+  }
+}
+
+@keyframes text-shadow-pop-tr {
+  0% {
+    text-shadow: 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555, 0 0 #555;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0)
+  }
+
+  100% {
+    text-shadow: 1px -1px #555, 2px -2px #555, 3px -3px #555, 4px -4px #555, 5px -5px #555, 6px -6px #555, 7px -7px #555, 8px -8px #555;
+    -webkit-transform: translateX(-8px) translateY(8px);
+    transform: translateX(-8px) translateY(8px)
+  }
+}
